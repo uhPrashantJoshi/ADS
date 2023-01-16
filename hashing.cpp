@@ -2,7 +2,7 @@
 #include <conio.h>
 #include <stdlib.h>
 using namespace std;
-#define max 5
+#define max 11
 typedef struct list
 {
     int data;
@@ -90,7 +90,7 @@ void Dictionary::display(int n)
     {
         while (root[i] != NULL)
         {
-            cout << "level" << i << "contents are" << root[i]->data << "\t ";
+            cout << "level " << i << " contents are " << root[i]->data << " \t \n";
             root[i] = root[i]->next;
         }
     }
@@ -100,7 +100,7 @@ main()
     int val, ch, n, num;
     char c;
     Dictionary d;
-    do
+    while(1)
     {
         cout << "\nMENU:\n1.Create";
         cout << "\n2.Search for a value\n3.Delete an value\n4.Display\n";
@@ -133,8 +133,5 @@ main()
         default:
             cout << "\nInvalid Choice.";
         }
-        cout << "\nEnter y to Continue:";
-        cin >> c;
-    } while (c == 'y');
-    getch();
+    }
 }
