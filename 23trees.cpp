@@ -139,6 +139,7 @@ void TreeNode::traverse()
 		if(leaf == false)
 			child[i]->traverse();
 		cout<<" "<<keys[i];
+
 	}
 	if(leaf == false)
 		child[i]->traverse();
@@ -348,40 +349,35 @@ void Tree::remove(int k)
 
 int main()
 {
-     Tree t;
+    Tree t;
+    int ch;
 	int n,k;
+	cout<<"2-3 Trees"<<"\n";
 
-	int opn;
+	cout<<"1.Insert\n2.Delete\n3.Display\n";
+    while(1)
+    {
+        cout<<"Enter your choice: ";
+        cin>>ch;
+    switch(ch)
+	{ case 1: cout<<"Enter the no. of elements"<<endl;
+              cin>>n;
+              cout<<"Enter the keys"<<endl;
+              for(int i=0; i<n; i++)
+              {
+                cin>>k;
+                t.insert(k);
+              }
+              break;
+    case 2: cout<<"Enter the key to be deleted"<<endl;
+            cin>>k;
+            t.remove(k);
+            break;
 
-	    do{
-                printf("1.insert\n2.traversal\n3.delete\n4.exit\n");
-	   printf("enter your choice\n");
-	    scanf("%d",&opn);
-	switch(opn){
-    case 1:
-        cout<<"Enter the no. of elements"<<endl;
-	cin>>n;
-	cout<<"Enter the keys"<<endl;
-	for(int i=0; i<n; i++)
-	{
-		cin>>k;
-		t.insert(k);
+	case 3: cout << "Traversal of tree constructed is\n";
+            t.traverse();
+            break;
+    default: exit(0);
 	}
-	break;
-	case 2:
-	cout << "Traversal of tree constructed is\n";
-    	t.traverse();
-    	break;
-    	case 3:
-	cout<<"Enter the key to be deleted"<<endl;
-	cin>>k;
-
-	t.remove(k);
-		break;
-
-
-	}
-	    }while(opn!=4);
-	return 0;
-
+    }
 }
